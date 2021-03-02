@@ -1,11 +1,11 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
-    if (!Array.isArray(arr)) {
-    throw new Error('input is not array')
+    let inp = [...arr];
+    if (!Array.isArray(inp)) {
+    throw new Error();
   }
-  let inp = [...arr];
-  let last_itt;
+
   for (let el of inp){
     if (typeof el == 'string'){
       switch (el) {
