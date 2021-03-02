@@ -4,7 +4,10 @@ const MODERN_ACTIVITY= 15;
 const HALF_LIFE_PERIOD= 5730;
 
 module.exports = function dateSample (input) {
-    if (typeof(input) === 'string') {
+  if (typeof(input) === 'string') {
+    if (Number(input) <= 0 || Number(input) > 15){
+      return false;
+    }
     if (input == '' || input == ' ' || isNaN(Number(input)) || Number(input) == 0 ||typeof(Number(input)) != 'number'){
       return false;
     } else {
