@@ -1,7 +1,7 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
-    let inp = [...arr];
+    let inp = arr;
     if (!Array.isArray(inp)) {
     throw new Error();
   }
