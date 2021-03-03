@@ -1,23 +1,23 @@
 const CustomError = require("../extensions/custom-error");
 
-module.exports = function getSeason(/* date */) {
-    if  (typeof date != 'object') {
-      if (typeof date != "undefined"){
+module.exports = function getSeason(date) {
+    if  (typeof date != "undefined") {
+      if ( toString.call(date) == toString.call(new Date())){
         let mounth = date.getMonth();
-        if ( (mounth <= 1) && (mounth = 11)) {
-          return 'winter';
-        } else if ( mounth <= 4 && mounth >= 2 ){
+        if (  mounth >= 2  && mounth <= 4){
           return 'spring';
-        } else if ( mounth <= 7 && mounth >= 5 ){
+        } else if ( mounth >= 5 && mounth <= 7 ){
           return 'summer';
-        } else if ( mounth <= 10 && mounth >= 8 ){
+        } else if ( mounth >= 8  &&  mounth <= 10){
           return 'autumn';
+        } else {
+          return 'winter';
         }
       } else {
-        return 'Unable to determine the time of year!';
-      }
+        throw new Error();
+      };
     } else {
-      c
-      
+      return 'Unable to determine the time of year!';
     }
 };
+
